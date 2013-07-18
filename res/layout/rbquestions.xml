@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tv_builders"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:background="#aaaaaa"
+        android:gravity="center_vertical|left"
+        android:padding="5dip"
+        android:text="Resilience Builders"
+        android:textColor="#000000"
+        style="@style/ScaleFontMedium" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" 
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <CheckBox
+                    android:id="@+id/chk1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0" />
+
+                <TextView
+                    android:id="@+id/txt1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/ScaleFontMedium"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <CheckBox
+                    android:id="@+id/chk2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0" />
+
+                <TextView
+                    android:id="@+id/txt2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/ScaleFontMedium"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <CheckBox
+                    android:id="@+id/chk3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0" />
+
+                <TextView
+                    android:id="@+id/txt3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/ScaleFontMedium"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <CheckBox
+                    android:id="@+id/chk4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0" />
+
+                <TextView
+                    android:id="@+id/txt4"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/ScaleFontMedium"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <CheckBox
+                    android:id="@+id/chk5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0" />
+
+                <TextView
+                    android:id="@+id/txt5"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/ScaleFontMedium"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <CheckBox
+                    android:id="@+id/chk6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0" 
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/txt6"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/ScaleFontMedium"
+                    android:layout_weight="1" 
+                    android:visibility="invisible" />
+            </LinearLayout>
+            
+            
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_custom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            style="@style/ScaleFontLarge"
+            android:contentDescription="Reset Application"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Customize"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/tv_killers"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical|left"
+            android:text=" "
+            android:textColor="#ffffff"
+            style="@style/ScaleFontMedium"
+            android:textStyle="bold" />
+        
+        <Button
+            android:id="@+id/btn_killers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            style="@style/ScaleFontLarge"
+            android:contentDescription="Reset Application"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Rate Killers"
+            android:textColor="#000000" />
+    </LinearLayout>
+
+    <include
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        layout="@layout/main_menu" />
+
+</LinearLayout>

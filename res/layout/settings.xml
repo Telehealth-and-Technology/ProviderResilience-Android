@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <!-- Box Start -->
+
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:android1="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="10dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="0" />
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:android1="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/prefs_reset"
+                    style="@style/ScaleFontLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:background="#1f2044"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="Reset Application"
+                    android:textColor="#ffffff" />
+
+                <Button
+                    android:id="@+id/toggle_reset"
+                    style="@style/ScaleFontLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="2"
+                    android:contentDescription="Reset Application"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="Reset"
+                    android:textColor="#000000" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="10dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="0" />
+        </LinearLayout>
+        <!-- Box End -->
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="10dip"
+            android:layout_weight="0" />
+
+        <!-- Box Start -->
+
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:android1="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="10dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="0" />
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:android1="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/prefs_welcomemessage"
+                    style="@style/ScaleFontLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:background="#1f2044"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="Welcome Message"
+                    android:textColor="#ffffff" />
+
+                <ToggleButton
+                    android:id="@+id/toggle_welcome"
+                    style="@style/ScaleFontLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="2"
+                    android:contentDescription="Welcome Message"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:textColor="#000000"
+                    android:textOff="Off"
+                    android:textOn="On" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="10dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="0" />
+        </LinearLayout>
+        <!-- Box End -->
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="10dip"
+            android:layout_weight="0" />
+
+        <!-- Box Start -->
+
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:android1="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="10dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="0" />
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:android1="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/prefs_reminders"
+                    style="@style/ScaleFontLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:background="#1f2044"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="Daily Reminders"
+                    android:textColor="#ffffff" />
+
+                <ToggleButton
+                    android:id="@+id/toggle_reminders"
+                    style="@style/ScaleFontLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="2"
+                    android:contentDescription="Daily Reminders"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:textColor="#000000"
+                    android:textOff="Off"
+                    android:textOn="On" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="10dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="0" />
+        </LinearLayout>
+        <!-- Box End -->
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="10dip"
+            android:layout_weight="0" />
+
+        <!-- Box Start -->
+
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:android1="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="10dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="0" />
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:android1="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/prefs_settime"
+                    style="@style/ScaleFontLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:background="#1f2044"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="Remind me at:"
+                    android:textColor="#ffffff" />
+
+                <Button
+                    android:id="@+id/toggle_setrtime"
+                    style="@style/ScaleFontLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="2"
+                    android:contentDescription="Set Reminder time"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="Set"
+                    android:textColor="#000000" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="10dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="0" />
+        </LinearLayout>
+        <!-- Box End -->
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="10dip"
+            android:layout_weight="0" />
+
+        <!-- Box Start -->
+
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:android1="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="10dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="0" />
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:android1="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/prefs_data_title"
+                    style="@style/ScaleFontLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:background="#1f2044"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="Anonymous Data"
+                    android:textColor="#ffffff" />
+
+                <ToggleButton
+                    android:id="@+id/toggle_anondata"
+                    style="@style/ScaleFontLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="2"
+                    android:contentDescription="Anonymous data"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:textColor="#000000"
+                    android:textOff="Off"
+                    android:textOn="On" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="10dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="0" />
+        </LinearLayout>
+        <!-- Box End -->
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="10dip"
+            android:layout_weight="0" />
+
+        <!-- Box Start -->
+
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:android1="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="10dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="0" />
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:android1="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/prefs_feedback"
+                    style="@style/ScaleFontLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:background="#1f2044"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="Send Feedback"
+                    android:textColor="#ffffff" />
+
+                <Button
+                    android:id="@+id/toggle_feedback"
+                    style="@style/ScaleFontLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="2"
+                    android:contentDescription="Send Feedback"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="Feedback"
+                    android:textColor="#000000" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="10dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="0" />
+        </LinearLayout>
+        <!-- Box End -->
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="10dip"
+            android:layout_weight="0" />
+
+        <!-- Box Start -->
+
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:android1="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="10dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="0" />
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:android1="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/prefs_setreset"
+                    style="@style/ScaleFontLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:background="#1f2044"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="Daily Scores Reset At:"
+                    android:textColor="#ffffff" />
+
+                <Button
+                    android:id="@+id/toggle_setreset"
+                    style="@style/ScaleFontLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="2"
+                    android:contentDescription="Send Feedback"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="Set"
+                    android:textColor="#000000" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="10dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="0" />
+        </LinearLayout>
+        <!-- Box End -->
+
+    </LinearLayout>
+
+    <include
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        layout="@layout/main_menu" />
+
+</LinearLayout>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="10dip"
+        android:layout_weight="0" />
+
+    <TextView
+        android:id="@+id/tv_disclaimer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:background="#aaaaaa"
+        android:gravity="center_vertical|left"
+        android:text="Compassion videos are used with permission from Gift From Within."
+        android:textColor="#000000"
+        style="@style/ScaleFontMedium"
+        android:textStyle="normal" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:orientation="vertical" >
+
+            <!-- NEW TABLE -->
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="10dip"
+                android:layout_weight="0" />
+
+            <TextView
+                android:id="@+id/tv_compfat"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:gravity="center_vertical|left"
+                android:text="What is Compassion Fatigue?  -  6:23"
+                android:textColor="#ffffff"
+                style="@style/ScaleFontMedium"
+                android:textStyle="normal" />
+
+            <ImageView
+                android:id="@+id/iv_compfat"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:paddingLeft="20dip"
+                android:paddingRight="20dip"
+                android:scaleType="centerInside"
+                android:src="@drawable/vid_compassionfatigue" />
+
+            <!-- NEW TABLE -->
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="10dip"
+                android:layout_weight="0" />
+
+            <TextView
+                android:id="@+id/tv_trauma"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:gravity="center_vertical|left"
+                android:text="How Can a Health Professional Best Support a Patient Who has Been Traumatized?  -  7:15"
+                android:textColor="#ffffff"
+                style="@style/ScaleFontMedium"
+                android:textStyle="normal" />
+
+            <ImageView
+                android:id="@+id/iv_trauma"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:paddingLeft="20dip"
+                android:paddingRight="20dip"
+                android:scaleType="centerInside"
+                android:src="@drawable/vid_trauma" />
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="10dip"
+        android:layout_weight="0" />
+
+    <include
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        layout="@layout/main_menu" />
+
+</LinearLayout>

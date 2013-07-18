@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <!-- START -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tv_timesince"
+                style="@style/ScaleFontMedium"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical|left"
+                android:text="It&apos;s been 0 days since your last update."
+                android:textColor="#ffffff"
+                android:textStyle="normal" />
+
+            <ImageButton
+                android:id="@+id/btn_upproqol"
+                style="@style/ScaleFontLarge"
+                android:layout_width="100dip"
+                android:layout_height="50dip"
+                android:layout_weight="0"
+                android:background="#00000000"
+                android:contentDescription="Update ProQOL"
+                android:gravity="center_vertical|center_horizontal"
+                android:padding="0dip"
+                android:scaleType="centerInside"
+                android:src="@drawable/updateprqol"
+                android:text=""
+                android:textColor="#000000" />
+        </LinearLayout>
+
+        <!-- NEW TABLE -->
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tv_compsat"
+            style="@style/ScaleFontMedium"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="#aaaaaa"
+            android:gravity="center_vertical|left"
+            android:padding="5dip"
+            android:text="COMPASSION SATISFACTION"
+            android:textColor="#000000" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tv_qolcsvalue"
+                style="@style/ScaleFontLarge"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:text="LOW\r\n30"
+                android:textColor="#ffffff"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/iv_csrating"
+                android:layout_width="25dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="0"
+                android:src="@drawable/gaugevert_blue" />
+
+            <TextView
+                android:id="@+id/tv_qolcsdesc"
+                style="@style/ScaleFontMedium"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical|left"
+                android:minLines="4"
+                android:paddingLeft="5dip"
+                android:text="Average Score   (click for more)\r\nYou&apos;ve scored in the average range of Compassion Satisfaction."
+                android:textColor="#ffffff"
+                android:textStyle="normal" />
+        </LinearLayout>
+
+        <!-- NEW TABLE -->
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tv_burnout"
+            style="@style/ScaleFontMedium"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="#aaaaaa"
+            android:gravity="center_vertical|left"
+            android:padding="5dip"
+            android:text="BURNOUT"
+            android:textColor="#000000" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tv_qolbvalue"
+                style="@style/ScaleFontLarge"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:text="LOW\r\n30"
+                android:textColor="#ffffff"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/iv_burnoutrating"
+                android:layout_width="25dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="0"
+                android:src="@drawable/gaugevert_blue" />
+
+            <TextView
+                android:id="@+id/tv_qolbdesc"
+                style="@style/ScaleFontMedium"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical|left"
+                android:minLines="4"
+                android:paddingLeft="5dip"
+                android:text="Average Score   (click for more)\r\nYour score on the Burnout subscale is in the average range."
+                android:textColor="#ffffff"
+                android:textStyle="normal" />
+        </LinearLayout>
+
+        <!-- NEW TABLE -->
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tv_sts"
+            style="@style/ScaleFontMedium"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="#aaaaaa"
+            android:gravity="center_vertical|left"
+            android:padding="5dip"
+            android:text="SECONDARY TRAUMATIC STRESS"
+            android:textColor="#000000" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tv_qolstsvalue"
+                style="@style/ScaleFontLarge"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:text="LOW\r\n30"
+                android:textColor="#ffffff"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/iv_stsrating"
+                android:layout_width="25dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="0"
+                android:src="@drawable/gaugevert_blue" />
+
+            <TextView
+                android:id="@+id/tv_qolstsdesc"
+                style="@style/ScaleFontMedium"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical|left"
+                android:minLines="4"
+                android:paddingLeft="5dip"
+                android:text="Average Score   (click for more)\r\nYour score on the Secondary Traumatic Stress scale is in the average range."
+                android:textColor="#ffffff"
+                android:textStyle="normal" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="3" />
+
+    <include
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        layout="@layout/main_menu" />
+
+</LinearLayout>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llMainMenu"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#00000000"
+    android:orientation="vertical"
+    android:visibility="invisible" >
+
+    <!-- The tabs -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="70dip"
+        android:background="@drawable/shine"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="10dip"
+        android:scaleType="centerCrop" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <view
+                android:id="@+id/btnMainDashboard"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                class="org.t2.pr.classes.ToggledImageButton"
+                android:contentDescription="@string/main_dashboard"
+                android:gravity="center_vertical|center_horizontal"
+                android:paddingBottom="0dip"
+                android:text="@string/main_dashboard"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/menu_txt_dashboard"
+                style="@style/ScaleFontSmall"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:ellipsize="marquee"
+                android:gravity="center_vertical|center_horizontal"
+                android:paddingTop="0dip"
+                android:singleLine="true"
+                android:text="Dashboard"
+                android:textColor="#777777" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <view
+                android:id="@+id/btnMainTools"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                class="org.t2.pr.classes.ToggledImageButton"
+                android:contentDescription="@string/main_tools"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/main_tools"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/menu_txt_tools"
+                style="@style/ScaleFontSmall"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:ellipsize="marquee"
+                android:gravity="center_vertical|center_horizontal"
+                android:paddingTop="0dip"
+                android:singleLine="true"
+                android:text="Tools"
+                android:textColor="#777777" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <view
+                android:id="@+id/btnMainCards"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                class="org.t2.pr.classes.ToggledImageButton"
+                android:contentDescription="@string/main_cards"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/main_cards"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/menu_txt_cards"
+                style="@style/ScaleFontSmall"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:ellipsize="marquee"
+                android:gravity="center_vertical|center_horizontal"
+                android:paddingTop="0dip"
+                android:singleLine="true"
+                android:text="Cards"
+                android:textColor="#777777" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <view
+                android:id="@+id/btnMainAbout"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                class="org.t2.pr.classes.ToggledImageButton"
+                android:contentDescription="@string/main_about"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/main_about"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/menu_txt_about"
+                style="@style/ScaleFontSmall"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:ellipsize="marquee"
+                android:gravity="center_vertical|center_horizontal"
+                android:paddingTop="0dip"
+                android:singleLine="true"
+                android:text="Help"
+                android:textColor="#777777" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <view
+                android:id="@+id/btnMainSettings"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                class="org.t2.pr.classes.ToggledImageButton"
+                android:contentDescription="@string/main_settings"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/main_settings"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/menu_txt_settings"
+                style="@style/ScaleFontSmall"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:ellipsize="marquee"
+                android:gravity="center_vertical|center_horizontal"
+                android:paddingTop="0dip"
+                android:singleLine="true"
+                android:text="Settings"
+                android:textColor="#777777" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

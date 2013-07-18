@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tv_label"
+        style="@style/ScaleFontMedium"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:background="#aaaaaa"
+        android:gravity="center_vertical|left"
+        android:padding="5dip"
+        android:text="PROFESSIONAL QUALITY OF LIFE"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/tv_numbers"
+        style="@style/ScaleFontLarge"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:gravity="left"
+        android:text="1 of 30"
+        android:textColor="#ffffff"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_question"
+        style="@style/ScaleFontLarge"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:minLines="4"
+        android:padding="5dip"
+        android:text="I am preoccupied with more than one person I treat."
+        android:textColor="#ffffff"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <!-- NEW BUTTON -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/btn_valone"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:contentDescription="Reset Application"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="1" />
+
+            <TextView
+                android:id="@+id/tv_lblone"
+                style="@style/ScaleFontSmall"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:ellipsize="marquee"
+                android:gravity="center_vertical|center_horizontal"
+                android:paddingTop="0dip"
+                android:singleLine="true"
+                android:text="Never"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+
+        <!-- NEW BUTTON -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/btn_valtwo"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:contentDescription="Reset Application"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="2" />
+
+            <TextView
+                android:id="@+id/tv_lbltwo"
+                style="@style/ScaleFontSmall"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:ellipsize="marquee"
+                android:gravity="center_vertical|center_horizontal"
+                android:paddingTop="0dip"
+                android:singleLine="true"
+                android:text="Rarely"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+
+        <!-- NEW BUTTON -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/btn_valthree"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:contentDescription="Reset Application"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="3" />
+
+            <TextView
+                android:id="@+id/tv_lblthree"
+                style="@style/ScaleFontSmall"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:ellipsize="marquee"
+                android:gravity="center_vertical|center_horizontal"
+                android:paddingTop="0dip"
+                android:singleLine="true"
+                android:text="Sometimes"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+
+        <!-- NEW BUTTON -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/btn_valfour"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:contentDescription="Reset Application"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="4" />
+
+            <TextView
+                android:id="@+id/tv_lblfour"
+                style="@style/ScaleFontSmall"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:ellipsize="marquee"
+                android:gravity="center_vertical|center_horizontal"
+                android:paddingTop="0dip"
+                android:singleLine="true"
+                android:text="Often"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+
+        <!-- NEW BUTTON -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/btn_valfive"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:contentDescription="Reset Application"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="5" />
+
+            <TextView
+                android:id="@+id/tv_lblfive"
+                style="@style/ScaleFontSmall"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:ellipsize="marquee"
+                android:gravity="center_vertical|center_horizontal"
+                android:paddingTop="0dip"
+                android:singleLine="true"
+                android:text="Very Often"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <include
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        layout="@layout/main_menu" />
+
+</LinearLayout>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dip"
+    android:background="@drawable/background"
+    android:orientation="vertical" >
+
+    <!-- START RR CLOCK -->
+
+    <TextView
+        android:id="@+id/tv_rrclock"
+        style="@style/ScaleFontMedium"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:background="#aaaaaa"
+        android:gravity="center_vertical|left"
+        android:padding="2dip"
+        android:text="Provider Resilience - R &amp; R CLOCK"
+        android:textColor="#000000" />
+
+    <ImageView
+        android:id="@+id/iv_rrclock"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="2"
+        android:contentDescription="Clock"
+        android:scaleType="fitXY" />
+
+    <!-- END RR CLOCK -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="2"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_rratingvalue"
+            style="@style/ScaleFontLarge"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Resilience Rating:"
+            android:textColor="#ffffff"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/iv_rrating"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:contentDescription="Clock"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/tv_rratinglabel"
+                style="@style/ScaleFontMedium"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="MED"
+                android:textColor="#ffffff"
+                android:textStyle="bold" />
+        </FrameLayout>
+    </LinearLayout>
+    <!-- END R RATING -->
+
+</LinearLayout>

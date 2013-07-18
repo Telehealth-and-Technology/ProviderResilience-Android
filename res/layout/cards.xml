@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+        
+        <TextView
+            android:id="@+id/tv_header"
+            style="@style/ScaleFontLarge"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:gravity="center"
+            android:text="Resilience Practice for Today"
+            android:textColor="#ffffff" 
+            android:visibility="gone" />
+        
+        <org.t2.pr.classes.TransitionView
+        android:id="@+id/ivcard"
+        android:layout_weight="1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+        
+        <!-- ImageView
+            android:id="@+id/ivcard"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="fitCenter"
+            /-->
+            
+            <TextView
+            android:id="@+id/tv_permission"
+            style="@style/ScaleFontSmall"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:gravity="center"
+            android:text="Used with permission of the Virtues Project International, www.virtuesproject.com"
+            android:textColor="#888888" />
+        </LinearLayout>
+    
+    <Button
+            android:id="@+id/btn_Done"
+            style="@style/ScaleFontLarge"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:gravity="center"
+            android:text="Done"
+            android:textColor="#ffffff"
+            android:visibility="gone" />
+    
+    
+    <include
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        layout="@layout/main_menu" />
+
+</LinearLayout>

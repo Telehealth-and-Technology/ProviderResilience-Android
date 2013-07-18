@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical" >
+
+    <!-- START RR CLOCK -->
+
+    <TextView
+        android:id="@+id/tv_rrclock"
+        style="@style/ScaleFontMedium"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:background="#aaaaaa"
+        android:gravity="center_vertical|left"
+        android:padding="5dip"
+        android:text="R &amp; R CLOCK"
+        android:textColor="#000000" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_rrlabel"
+            style="@style/ScaleFontMedium"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical|left"
+            android:paddingLeft="10dip"
+            android:text="Time since your last leave:"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/btn_rrclock"
+            style="@style/ScaleFontLarge"
+            android:layout_width="100dip"
+            android:layout_height="50dip"
+            android:layout_weight="0"
+            android:background="#00000000"
+            android:gravity="center_vertical|center_horizontal"
+            android:padding="0dip"
+            android:scaleType="centerInside"
+            android:src="@drawable/updateclock"
+            android:text=""
+            android:textColor="#000000" />
+    </LinearLayout>
+
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/flClock"
+        android:layout_width="fill_parent"
+        android:layout_height="80dip"
+        android:layout_weight="0" >
+
+        <ImageView
+            android:id="@+id/btn_videos"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="0"
+            android:contentDescription="Videos"
+            android:scaleType="fitXY"
+            android:src="@drawable/shine" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <FrameLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" >
+
+                    <TextView
+                        android:id="@+id/tv_year_shadow"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="10dip"
+                        android:text="88"
+                        android:textColor="#444444"
+                        android:textSize="44sp" />
+
+                    <TextView
+                        android:id="@+id/tv_year_digit"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="10dip"
+                        android:text="12"
+                        android:textColor="#129112"
+                        android:textSize="44sp" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tv_year_label"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="YR"
+                    android:textColor="#ffffff"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <FrameLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" >
+
+                    <TextView
+                        android:id="@+id/tv_month_shadow"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="10dip"
+                        android:text="88"
+                        android:textColor="#444444"
+                        android:textSize="44sp" />
+
+                    <TextView
+                        android:id="@+id/tv_month_digit"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="10dip"
+                        android:text="04"
+                        android:textColor="#129112"
+                        android:textSize="44sp" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tv_month_label"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="MO"
+                    android:textColor="#ffffff"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <FrameLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" >
+
+                    <TextView
+                        android:id="@+id/tv_day_shadow"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="10dip"
+                        android:text="88"
+                        android:textColor="#444444"
+                        android:textSize="44sp" />
+
+                    <TextView
+                        android:id="@+id/tv_day_digit"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="10dip"
+                        android:text="03"
+                        android:textColor="#129112"
+                        android:textSize="44sp" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tv_day_label"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="DAY"
+                    android:textColor="#ffffff"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <FrameLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" >
+
+                    <TextView
+                        android:id="@+id/tv_hour_shadow"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="10dip"
+                        android:text="88"
+                        android:textColor="#444444"
+                        android:textSize="44sp" />
+
+                    <TextView
+                        android:id="@+id/tv_hour_digit"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="10dip"
+                        android:text="11"
+                        android:textColor="#129112"
+                        android:textSize="44sp" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tv_hour_label"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="HR"
+                    android:textColor="#ffffff"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <FrameLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" >
+
+                    <TextView
+                        android:id="@+id/tv_minute_shadow"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="10dip"
+                        android:text="88"
+                        android:textColor="#444444"
+                        android:textSize="44sp" />
+
+                    <TextView
+                        android:id="@+id/tv_minute_digit"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="10dip"
+                        android:text="17"
+                        android:textColor="#129112"
+                        android:textSize="44sp" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tv_minute_label"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="MIN"
+                    android:textColor="#ffffff"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_Vacation"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="0"
+            android:gravity="top|center_horizontal"
+            android:padding="5dip"
+            android:text="ON VACATION"
+            android:textColor="#129112"
+            android:textSize="44sp" />
+    </FrameLayout>
+    <!-- END RR CLOCK -->
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" />
+
+    <!-- START R RATING -->
+
+    <TextView
+        android:id="@+id/tv_rrating"
+        style="@style/ScaleFontMedium"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:background="#aaaaaa"
+        android:gravity="center_vertical|left"
+        android:padding="5dip"
+        android:text="RESILIENCE RATING"
+        android:textColor="#000000" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_rratinglabel"
+            style="@style/ScaleFontMedium"
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            android:layout_weight="1"
+            android:background="@drawable/gaugehoriz_blue"
+            android:gravity="center"
+            android:text="MED"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_rratingvalue"
+            style="@style/ScaleFontLarge"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="32"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/btn_rrating"
+            style="@style/ScaleFontLarge"
+            android:layout_width="100dip"
+            android:layout_height="50dip"
+            android:layout_weight="0"
+            android:background="#00000000"
+            android:contentDescription="Update Rating"
+            android:gravity="top|center_horizontal"
+            android:padding="0dip"
+            android:scaleType="centerInside"
+            android:src="@drawable/updaterating"
+            android:text=""
+            android:textColor="#000000" />
+    </LinearLayout>
+    <!-- END R RATING -->
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" />
+
+    <!-- START PROQOL -->
+
+    <TextView
+        android:id="@+id/tv_qol"
+        style="@style/ScaleFontMedium"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:background="#aaaaaa"
+        android:gravity="center_vertical|left"
+        android:padding="5dip"
+        android:text="QUALITY OF LIFE"
+        android:textColor="#000000" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_rratingvalue"
+                style="@style/ScaleFontSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="0"
+                android:gravity="center"
+                android:minLines="3"
+                android:paddingLeft="5dip"
+                android:text="Compassion\r\nSatisfaction"
+                android:textColor="#ffffff"
+                android:textStyle="normal" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="0"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/tv_qolcsvalue"
+                    style="@style/ScaleFontMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0"
+                    android:gravity="center"
+                    android:paddingLeft="10dip"
+                    android:text="LOW\r\n20"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/iv_qolcsvalue"
+                    android:layout_width="25dip"
+                    android:layout_height="50dip"
+                    android:layout_weight="0"
+                    android:src="@drawable/gaugevert_blue" />
+            </LinearLayout>
+        </LinearLayout>
+        <!-- new section -->
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_rratingvalue"
+                style="@style/ScaleFontSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="0"
+                android:gravity="center"
+                android:minLines="3"
+                android:text="Burnout\r\n"
+                android:textColor="#ffffff"
+                android:textStyle="normal" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="0"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/tv_qolbvalue"
+                    style="@style/ScaleFontMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0"
+                    android:gravity="center"
+                    android:text="HIGH\r\n80"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/iv_qolbvalue"
+                    android:layout_width="25dip"
+                    android:layout_height="50dip"
+                    android:layout_weight="0"
+                    android:src="@drawable/gaugevert_blue" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- new section -->
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_rratingvalue"
+                style="@style/ScaleFontSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="0"
+                android:gravity="center"
+                android:minLines="3"
+                android:text="Secondary\r\nTraumatic\r\nStress"
+                android:textColor="#ffffff"
+                android:textStyle="normal" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="0"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/tv_qolstsvalue"
+                    style="@style/ScaleFontMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0"
+                    android:gravity="center"
+                    android:text="LOW\r\n20"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/iv_qolstsvalue"
+                    android:layout_width="25dip"
+                    android:layout_height="50dip"
+                    android:layout_weight="0"
+                    android:src="@drawable/gaugevert_blue" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" />
+        <!-- new section -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/btn_qolupdate"
+                style="@style/ScaleFontLarge"
+                android:layout_width="100dip"
+                android:layout_height="50dip"
+                android:layout_weight="0"
+                android:background="#00000000"
+                android:contentDescription="Update ProQOL"
+                android:gravity="center_vertical|center_horizontal"
+                android:padding="0dip"
+                android:scaleType="centerInside"
+                android:src="@drawable/updateprqol"
+                android:text=""
+                android:textColor="#000000" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- END PROQOL -->
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" />
+
+    <include
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        layout="@layout/main_menu" />
+
+</LinearLayout>
