@@ -1,23 +1,16 @@
 package org.t2.pr.activities;
 
 import org.t2.pr.R;
-import org.t2.pr.classes.DatabaseProvider;
 import org.t2.pr.classes.Global;
 
 import com.brightcove.mobile.mediaapi.ReadAPI;
-import com.brightcove.mobile.mediaapi.model.ItemCollection;
-import com.brightcove.mobile.mediaapi.model.Playlist;
 import com.brightcove.mobile.mediaapi.model.Video;
 import com.brightcove.mobile.mediaapi.model.enums.MediaDeliveryTypeEnum;
-import com.brightcove.mobile.mediaapi.model.enums.SortByTypeEnum;
-import com.brightcove.mobile.mediaapi.model.enums.SortOrderTypeEnum;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -28,7 +21,6 @@ public class VideosActivity extends ABSActivity implements OnClickListener
 	private ImageView btnVidCompFat;
 	private ImageView btnVidTrauma;
 	private ReadAPI readAPI;
-	private DatabaseProvider db = new DatabaseProvider(this);
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) 
@@ -70,7 +62,7 @@ public class VideosActivity extends ABSActivity implements OnClickListener
 
 			try{
 				String answerDate = (String) android.text.format.DateFormat.format("MM/dd/yyyy hh:mm aa", new java.util.Date());
-				db.insertMisc("video", 1, answerDate);
+				Global.databaseHelper.insertMisc("video", 1, answerDate);
 				//Read the video url from brightcove and load with standard media player (sorry, brightcove's player is junk.)
 				Video video = readAPI.findVideoById(Long.parseLong("1279636611001"), null, null);
 				Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -87,7 +79,7 @@ public class VideosActivity extends ABSActivity implements OnClickListener
 
 			try{
 				String answerDate = (String) android.text.format.DateFormat.format("MM/dd/yyyy hh:mm aa", new java.util.Date());
-				db.insertMisc("video", 1, answerDate);
+				Global.databaseHelper.insertMisc("video", 1, answerDate);
 				//Read the video url from brightcove and load with standard media player (sorry, brightcove's player is junk.)
 				Video video = readAPI.findVideoById(Long.parseLong("1279636609001"), null, null);
 				Intent intent = new Intent(Intent.ACTION_VIEW);

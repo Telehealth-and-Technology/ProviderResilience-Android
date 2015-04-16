@@ -3,7 +3,6 @@ package org.t2.pr.activities;
 import java.util.Calendar;
 import java.util.Timer;
 import java.util.TimerTask;
-
 import org.joda.time.DateTime;
 import org.joda.time.Period;
 import org.joda.time.PeriodType;
@@ -11,24 +10,18 @@ import org.t2.pr.R;
 import org.t2.pr.classes.ActivityFactory;
 import org.t2.pr.classes.Global;
 import org.t2.pr.classes.Scoring;
-import org.t2.pr.classes.SharedPref;
-
+import org.t2.pr.classes.PreferenceHelper;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.app.PendingIntent;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.Html;
 import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -37,7 +30,6 @@ import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * Create screen provides navigation to all activity choosing functionality
@@ -46,9 +38,6 @@ import android.widget.Toast;
  */
 public class HomeActivity extends ABSActivity implements OnClickListener
 {
-	private PendingIntent pendingIntent;
-
-	private Handler mHandler = new Handler();
 
 	public TextView tv_Vacation;
 
@@ -119,7 +108,7 @@ public class HomeActivity extends ABSActivity implements OnClickListener
 	public void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
-
+		
 		onEvent("Opened Home Activity");
 
 		setContentView(R.layout.home_new);
@@ -189,7 +178,7 @@ public class HomeActivity extends ABSActivity implements OnClickListener
 		cHour = c.get(Calendar.HOUR_OF_DAY);
 		cMin = c.get(Calendar.MINUTE);
 
-		if(SharedPref.getVacationYear() == 0)
+		if(PreferenceHelper.getVacationYear() == 0)
 		{
 			// get the current date
 			vYear = cYear;
@@ -199,9 +188,9 @@ public class HomeActivity extends ABSActivity implements OnClickListener
 		else
 		{
 			// get the saved date
-			vYear = SharedPref.getVacationYear();
-			vMonth = SharedPref.getVacationMonth();
-			vDay = SharedPref.getVacationDay();
+			vYear = PreferenceHelper.getVacationYear();
+			vMonth = PreferenceHelper.getVacationMonth();
+			vDay = PreferenceHelper.getVacationDay();
 		}
 
 		tv_rratingvalue = (TextView)this.findViewById(R.id.tv_rratingvalue);
@@ -271,7 +260,7 @@ public class HomeActivity extends ABSActivity implements OnClickListener
 		{
 			onEvent("Showing Welcome Message");
 
-			if(SharedPref.getWelcomeMessage())
+			if(PreferenceHelper.getWelcomeMessage())
 			{
 				//Build welcome HTML
 				String results = "<HTML>";
@@ -301,7 +290,7 @@ public class HomeActivity extends ABSActivity implements OnClickListener
 					@Override
 					public void onClick(View v) {
 						if(chk.isChecked())
-							SharedPref.setWelcomeMessage(false);
+							PreferenceHelper.setWelcomeMessage(false);
 						Global.seenWelcome = true;
 						dialog.cancel();
 					}
@@ -349,7 +338,7 @@ public class HomeActivity extends ABSActivity implements OnClickListener
 		{
 			sDate = (String) android.text.format.DateFormat.format("MM/dd/yyyy hh:mm aa", new java.util.Date());
 
-			if(SharedPref.getOnVacation())
+			if(PreferenceHelper.getOnVacation())
 			{
 				tv_Vacation.setVisibility(View.VISIBLE);
 				tvYearDigit.setVisibility(View.GONE);
@@ -397,7 +386,7 @@ public class HomeActivity extends ABSActivity implements OnClickListener
 				tvHourLabel.setVisibility(View.VISIBLE);
 				tvMinuteLabel.setVisibility(View.VISIBLE);
 
-				if(SharedPref.getVacationYear() == 0)
+				if(PreferenceHelper.getVacationYear() == 0)
 				{
 					// get the current date
 					vYear = cYear;
@@ -407,9 +396,9 @@ public class HomeActivity extends ABSActivity implements OnClickListener
 				else
 				{
 					// get the saved date
-					vYear = SharedPref.getVacationYear();
-					vMonth = SharedPref.getVacationMonth();
-					vDay = SharedPref.getVacationDay();
+					vYear = PreferenceHelper.getVacationYear();
+					vMonth = PreferenceHelper.getVacationMonth();
+					vDay = PreferenceHelper.getVacationDay();
 				}
 
 				DateTime v = new DateTime(vYear, vMonth + 1, vDay, 0, 0);
@@ -498,7 +487,6 @@ public class HomeActivity extends ABSActivity implements OnClickListener
 			int totalResScore = Scoring.TotalResilienceScore(sDate);
 			tv_rratingvalue.setText("" + totalResScore);
 
-			String lastQOL = Scoring.getLastQOLDate();
 
 			BitmapFactory.Options opts=new BitmapFactory.Options();
 
@@ -578,9 +566,9 @@ public class HomeActivity extends ABSActivity implements OnClickListener
 			vYear = year;
 			vMonth = monthOfYear;
 			vDay = dayOfMonth;
-			SharedPref.setVacationYear(vYear);
-			SharedPref.setVacationMonth(vMonth);
-			SharedPref.setVacationDay(vDay);
+			PreferenceHelper.setVacationYear(vYear);
+			PreferenceHelper.setVacationMonth(vMonth);
+			PreferenceHelper.setVacationDay(vDay);
 			updateDisplay();
 		}
 	};

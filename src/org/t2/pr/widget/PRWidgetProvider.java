@@ -1,17 +1,15 @@
 package org.t2.pr.widget;
 
 import java.util.Calendar;
-import java.util.Random;
-
 import org.joda.time.DateTime;
 import org.joda.time.Period;
 import org.joda.time.PeriodType;
 import org.t2.pr.R;
 import org.t2.pr.classes.ActivityFactory;
-import org.t2.pr.classes.DatabaseProvider;
+import org.t2.pr.classes.DatabaseHelper;
 import org.t2.pr.classes.Global;
 import org.t2.pr.classes.Scoring;
-import org.t2.pr.classes.SharedPref;
+import org.t2.pr.classes.PreferenceHelper;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
@@ -19,21 +17,16 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Paint.Align;
-import android.graphics.Rect;
 import android.graphics.Typeface;
-import android.preference.PreferenceManager;
-import android.util.Log;
 import android.widget.RemoteViews;
 
 public class PRWidgetProvider extends AppWidgetProvider {
 
-	private static final String ACTION_CLICK = "ACTION_CLICK";
+	//private static final String ACTION_CLICK = "ACTION_CLICK";
 
 	private int vYear;
 	private int vMonth;
@@ -49,7 +42,8 @@ public class PRWidgetProvider extends AppWidgetProvider {
 			int[] appWidgetIds) {
 
 		Global.appContext = context;
-		Global.sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
+		if(Global.databaseHelper == null)
+			Global.databaseHelper = new DatabaseHelper(context);
 		
 		// Get all ids
 		ComponentName thisWidget = new ComponentName(context,
@@ -57,7 +51,7 @@ public class PRWidgetProvider extends AppWidgetProvider {
 		int[] allWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget);
 		for (int widgetId : allWidgetIds) {
 			// Create some random data
-			int number = (new Random().nextInt(100));
+			//int number = (new Random().nextInt(100));
 
 			RemoteViews remoteViews = new RemoteViews(context.getPackageName(),
 					R.layout.widget_layout);
@@ -103,7 +97,7 @@ public class PRWidgetProvider extends AppWidgetProvider {
 			cHour = c.get(Calendar.HOUR_OF_DAY);
 			cMin = c.get(Calendar.MINUTE);
 			
-		    if(SharedPref.getVacationYear() == 0)
+		    if(PreferenceHelper.getVacationYear() == 0)
 			{
 				// get the current date
 				vYear = cYear;
@@ -113,9 +107,9 @@ public class PRWidgetProvider extends AppWidgetProvider {
 			else
 			{
 				// get the saved date
-				vYear = SharedPref.getVacationYear();
-				vMonth = SharedPref.getVacationMonth();
-				vDay = SharedPref.getVacationDay();
+				vYear = PreferenceHelper.getVacationYear();
+				vMonth = PreferenceHelper.getVacationMonth();
+				vDay = PreferenceHelper.getVacationDay();
 			}
 
 			DateTime v = new DateTime(vYear, vMonth + 1, vDay, 0, 0);
@@ -184,7 +178,6 @@ public class PRWidgetProvider extends AppWidgetProvider {
 	    	remoteViews.setTextViewText(R.id.tv_rratinglabel, Scoring.TotalResilienceString(totalResScore));
 		    
 			// Set the text
-			//remoteViews.setTextViewText(R.id.tv_rrclock, "knock knock");
 		    remoteViews.setImageViewBitmap(R.id.iv_rrclock, myBitmap);
 			// Register an onClickListener
 			//Intent intent = new Intent(context, PRWidgetProvider.class);

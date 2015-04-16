@@ -1,27 +1,20 @@
 package org.t2.pr.activities;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import org.joda.time.DateTime;
 import org.joda.time.Duration;
 import org.t2.pr.R;
 import org.t2.pr.classes.ActivityFactory;
-import org.t2.pr.classes.DatabaseProvider;
 import org.t2.pr.classes.Global;
 import org.t2.pr.classes.Scoring;
 
 import zencharts.charts.DateChart;
-import zencharts.charts.LineChart;
 import zencharts.data.DatePoint;
 import zencharts.data.DateSeries;
-import zencharts.data.LinePoint;
-import zencharts.data.LineSeries;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.format.DateFormat;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -35,7 +28,6 @@ import android.widget.LinearLayout;
 public class BurnoutChartActivity extends ABSActivity implements OnClickListener
 {
 
-	private static DatabaseProvider db = new DatabaseProvider(Global.appContext);
 	private Button btnUpdate;
 
 	LinearLayout chartLayout;
@@ -69,7 +61,7 @@ public class BurnoutChartActivity extends ABSActivity implements OnClickListener
 	private void getZenChartData()
 	{
 
-		ArrayList<String> qoldates = (ArrayList<String>) db.selectBURNOUTDates();
+		ArrayList<String> qoldates = (ArrayList<String>) Global.databaseHelper.selectBURNOUTDates();
 
 		if(qoldates.size() > 0)
 		{

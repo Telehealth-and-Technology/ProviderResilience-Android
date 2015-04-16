@@ -9,7 +9,7 @@ import org.joda.time.Period;
 import org.joda.time.PeriodType;
 import org.t2.pr.R;
 import org.t2.pr.classes.Scoring;
-import org.t2.pr.classes.SharedPref;
+import org.t2.pr.classes.PreferenceHelper;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -17,7 +17,6 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -130,7 +129,7 @@ public class RRClockActivity extends ABSActivity
 
 		tbVacation = (ToggleButton) this.findViewById(R.id.toggle_vacation);
 		tbVacation.setOnClickListener(this);
-		tbVacation.setChecked(SharedPref.getOnVacation());
+		tbVacation.setChecked(PreferenceHelper.getOnVacation());
 
 		tvToggleLabel = (TextView) this.findViewById(R.id.tv_toggle);
 
@@ -142,7 +141,7 @@ public class RRClockActivity extends ABSActivity
 		cHour = c.get(Calendar.HOUR_OF_DAY);
 		cMin = c.get(Calendar.MINUTE);
 
-		if(SharedPref.getVacationYear() == 0)
+		if(PreferenceHelper.getVacationYear() == 0)
 		{
 			// get the current date
 			vYear = cYear;
@@ -152,9 +151,9 @@ public class RRClockActivity extends ABSActivity
 		else
 		{
 			// get the saved date
-			vYear = SharedPref.getVacationYear();
-			vMonth = SharedPref.getVacationMonth();
-			vDay = SharedPref.getVacationDay();
+			vYear = PreferenceHelper.getVacationYear();
+			vMonth = PreferenceHelper.getVacationMonth();
+			vDay = PreferenceHelper.getVacationDay();
 		}
 
 
@@ -182,7 +181,7 @@ public class RRClockActivity extends ABSActivity
 
 	private void updateDisplay()
 	{
-		if(SharedPref.getOnVacation())
+		if(PreferenceHelper.getOnVacation())
 		{
 			tv_Vacation.setVisibility(View.VISIBLE);
 			tvYearDigit.setVisibility(View.GONE);
@@ -322,9 +321,9 @@ public class RRClockActivity extends ABSActivity
 			vYear = year;
 			vMonth = monthOfYear;
 			vDay = dayOfMonth;
-			SharedPref.setVacationYear(vYear);
-			SharedPref.setVacationMonth(vMonth);
-			SharedPref.setVacationDay(vDay);
+			PreferenceHelper.setVacationYear(vYear);
+			PreferenceHelper.setVacationMonth(vMonth);
+			PreferenceHelper.setVacationDay(vDay);
 			updateDisplay();
 		}
 	};
@@ -357,17 +356,17 @@ public class RRClockActivity extends ABSActivity
 			onEvent("Clock Activity: Toggle Vacation");
 
 			boolean isonVacation = tbVacation.isChecked();
-			SharedPref.setOnVacation(isonVacation);
+			PreferenceHelper.setOnVacation(isonVacation);
 			if(!isonVacation)
 			{
 				//Update the clock date
-				SharedPref.setVacationYear(cYear);
-				SharedPref.setVacationMonth(cMonth);
-				SharedPref.setVacationDay(cDay);
+				PreferenceHelper.setVacationYear(cYear);
+				PreferenceHelper.setVacationMonth(cMonth);
+				PreferenceHelper.setVacationDay(cDay);
 				// get the saved date
-				vYear = SharedPref.getVacationYear();
-				vMonth = SharedPref.getVacationMonth();
-				vDay = SharedPref.getVacationDay();
+				vYear = PreferenceHelper.getVacationYear();
+				vMonth = PreferenceHelper.getVacationMonth();
+				vDay = PreferenceHelper.getVacationDay();
 
 			}
 			updateDisplay();

@@ -15,7 +15,7 @@ import android.widget.TextView;
  * Navigation enabled webview activity
  *
  */
-public class ABSWebViewActivity extends FlurryActivity 
+public class ABSWebViewActivity extends PRActivity 
 {
 	@Override
 	public void onCreate(Bundle savedInstanceState) 

@@ -1,48 +1,31 @@
 package org.t2.pr.activities;
 
 import java.util.ArrayList;
-import java.util.Date;
-import org.achartengine.ChartFactory;
 import org.achartengine.GraphicalView;
-import org.achartengine.chart.PointStyle;
-import org.achartengine.model.TimeSeries;
-import org.achartengine.model.XYMultipleSeriesDataset;
-import org.achartengine.renderer.BasicStroke;
-import org.achartengine.renderer.XYMultipleSeriesRenderer;
-import org.achartengine.renderer.XYSeriesRenderer;
 import org.joda.time.DateTime;
 import org.joda.time.Duration;
 import org.t2.pr.R;
 import org.t2.pr.classes.ActivityFactory;
-import org.t2.pr.classes.DatabaseProvider;
 import org.t2.pr.classes.Global;
 import org.t2.pr.classes.Scoring;
 
 import zencharts.charts.DateChart;
-import zencharts.charts.LineChart;
 import zencharts.data.DatePoint;
 import zencharts.data.DateSeries;
-import zencharts.data.LinePoint;
-import zencharts.data.LineSeries;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.format.DateFormat;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.LinearLayout;
 
 public class PROQOLChartActivity extends ABSActivity implements OnClickListener
 {
-
-	private static DatabaseProvider db = new DatabaseProvider(Global.appContext);
 	private Button btnUpdate;
 	GraphicalView mChartView;
 	//LinearLayout chartLayout;
 	public DateChart dateChart;
 
-	private static final double THREEDAYS = 81300000 *13;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) 
@@ -76,7 +59,7 @@ public class PROQOLChartActivity extends ABSActivity implements OnClickListener
 
 	private void getZenChartData()
 	{
-		ArrayList<String> qoldates = (ArrayList<String>) db.selectQOLDates();
+		ArrayList<String> qoldates = (ArrayList<String>) Global.databaseHelper.selectQOLDates();
 
 		if(qoldates.size() > 0)
 		{

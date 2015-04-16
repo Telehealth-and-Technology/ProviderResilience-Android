@@ -20,9 +20,7 @@ import javax.net.ssl.X509TrustManager;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.t2.pr.R;
-import org.t2.pr.classes.DatabaseProvider;
 import org.t2.pr.classes.Global;
-import org.t2.pr.classes.SharedPref;
 
 import ImageViewTouch.ImageViewTouch;
 import android.app.AlertDialog;
@@ -32,7 +30,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.os.Bundle;
-import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -46,7 +43,6 @@ public class LaughActivity extends ABSActivity implements OnClickListener
 	private int dilbertIndex = 0;
 	private Button btn_prev;
 	private Button btn_next;
-	private DatabaseProvider db = new DatabaseProvider(this);
 	private Bitmap bmpDilbert;
 	private ProgressDialog m_ProgressDialog = null;
 	private TextView tvTitle;
@@ -84,7 +80,7 @@ public class LaughActivity extends ABSActivity implements OnClickListener
 		btn_next.setOnClickListener(this);
 
 		String date = (String) android.text.format.DateFormat.format("MM/dd/yyyy hh:mm aa", new java.util.Date());
-		db.insertMisc("laugh", 1, date);
+		Global.databaseHelper.insertMisc("laugh", 1, date);
 
 	}
 

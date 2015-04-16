@@ -6,7 +6,6 @@ import org.joda.time.DateMidnight;
 import org.joda.time.Days;
 import org.t2.pr.R;
 import org.t2.pr.classes.ActivityFactory;
-import org.t2.pr.classes.DatabaseProvider;
 import org.t2.pr.classes.Global;
 import org.t2.pr.classes.Scoring;
 
@@ -36,7 +35,6 @@ public class ProQOLActivity extends ABSActivity implements OnClickListener
 	public ImageView iv_csvalue;
 	public ImageView iv_bvalue;
 	public ImageView iv_stsvalue;
-	private DatabaseProvider db = new DatabaseProvider(this);
 
 	private String csShortL = "Low Score   (click here for more)\r\nYou've scored in the low range of Compassion Satisfaction.";
 	private String csShortA = "Average Score   (click here for more)\r\nYou've scored in the average range of Compassion Satisfaction.";
@@ -99,7 +97,7 @@ public class ProQOLActivity extends ABSActivity implements OnClickListener
 	public void UpdateDisplay()
 	{
 		String sDate = (String) android.text.format.DateFormat.format("MM/dd/yyyy", new java.util.Date());
-		ArrayList<String> qoldates = (ArrayList<String>) db.selectQOLDates();
+		ArrayList<String> qoldates = (ArrayList<String>) Global.databaseHelper.selectQOLDates();
 		String lastDate = "";
 		if(qoldates.size()>0)
 			lastDate = qoldates.get(0);

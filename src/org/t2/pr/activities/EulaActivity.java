@@ -1,12 +1,8 @@
 package org.t2.pr.activities;
 
-import java.util.Calendar;
-
 import org.t2.pr.R;
 import org.t2.pr.classes.ActivityFactory;
-import org.t2.pr.classes.SharedPref;
-
-import android.content.Intent;
+import org.t2.pr.classes.PreferenceHelper;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -55,7 +51,7 @@ public class EulaActivity extends ABSWebViewActivity
 	{
 		onEvent("Accepted EULA");
 
-		SharedPref.setIsEulaAccepted(true);
+		PreferenceHelper.setIsEulaAccepted(true);
 		this.startActivity(ActivityFactory.getAboutActivity(this));
 		this.finish();
 	}

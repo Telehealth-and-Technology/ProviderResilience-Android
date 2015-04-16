@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.t2.pr.R;
 import org.t2.pr.classes.ActivityFactory;
-import org.t2.pr.classes.DatabaseProvider;
+import org.t2.pr.classes.Global;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -26,10 +26,6 @@ public class RKQuestionsActivity  extends ABSActivity
 	public static String customKiller = "";
 	private List<String[]> questionList;
 	private ArrayList<int[]> answers;
-
-	//private ProgressDialog m_ProgressDialog = null;
-	private DatabaseProvider db = new DatabaseProvider(this);
-	//private Context ctx;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) 
@@ -54,7 +50,7 @@ public class RKQuestionsActivity  extends ABSActivity
 
 	private void PopulateRKQuestions()
 	{
-		questionList = db.selectRKQuestions();
+		questionList = Global.databaseHelper.selectRKQuestions();
 		answers = new ArrayList<int[]>();
 
 		if (questionList.size() > 0) 
@@ -109,7 +105,7 @@ public class RKQuestionsActivity  extends ABSActivity
 		onEvent("KillersQuestions Activity: Save Questions");
 
 		String date = (String) android.text.format.DateFormat.format("MM/dd/yyyy hh:mm aa", new java.util.Date());
-		db.insertRKAnswers(answers, date);
+		Global.databaseHelper.insertRKAnswers(answers, date);
 	}
 
 	public void CustomQuestion()
@@ -127,7 +123,7 @@ public class RKQuestionsActivity  extends ABSActivity
 				customKiller = input.getText().toString().trim();
 				
 				//Save to database
-					db.insertRKQuestion(customKiller);
+				Global.databaseHelper.insertRKQuestion(customKiller);
 					reloadActivity();
 				
 			}

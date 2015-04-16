@@ -4,20 +4,19 @@ import java.util.List;
 
 import org.t2.pr.R;
 import org.t2.pr.classes.ActivityFactory;
-import org.t2.pr.classes.SharedPref;
+import org.t2.pr.classes.PreferenceHelper;
 import org.t2.pr.classes.ToggledImageButton;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,7 +30,7 @@ import android.widget.Toast;
  * @author stephenody
  *
  */
-public abstract class ABSActivity extends FlurryActivity implements OnClickListener
+public abstract class ABSActivity extends PRActivity implements OnClickListener
 {
 
 	private static final int DIALOG_STATISTICS = 0;
@@ -47,16 +46,6 @@ public abstract class ABSActivity extends FlurryActivity implements OnClickListe
 	public ToggledImageButton btnMainCards;
 	public ToggledImageButton btnMainAbout;
 	public ToggledImageButton btnMainSettings;
-
-	@Override
-	protected void onCreate(Bundle savedInstanceState) 
-	{
-		super.onCreate(savedInstanceState);
-
-		this.onPageView();
-	}
-
-
 
 	@Override
 	public void setContentView(int layoutResID) 
@@ -233,37 +222,17 @@ public abstract class ABSActivity extends FlurryActivity implements OnClickListe
 
 		menu.setQwertyMode(true);
 
-		MenuItem item1 = menu.add(0, Menu1, 0, "Send Study Log");
-		MenuItem item2 = menu.add(0, Menu2, 0, "Disenroll From Study");
+		menu.add(0, Menu1, 0, "Send Study Log");
+		menu.add(0, Menu2, 0, "Disenroll From Study");
 	}
 
 	public boolean applyMenuChoice(MenuItem item) {
 		switch (item.getItemId()) {
 		case Menu1:
-			new AsyncTask<Void, Void, Uri>() {
-				@Override
-				protected Uri doInBackground(Void... params) {
-					return generateStatisticsCsv();
-				}
-
-				@Override
-				protected void onPostExecute(Uri result) {
-					final Intent emailIntent = new Intent(Intent.ACTION_SEND);
-					emailIntent.setType("message/rfc822");
-					emailIntent.putExtra(Intent.EXTRA_EMAIL,
-							new String[] {
-							SharedPref.getStudyParticipantEmail()
-					});
-					emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Provider Resilience Log File");
-					emailIntent.putExtra(Intent.EXTRA_TEXT,
-							"Attached is a Provider Resilience log file.");
-					emailIntent.putExtra(Intent.EXTRA_STREAM, result);
-					startActivity(Intent.createChooser(emailIntent, "Send mail..."));
-				}
-			}.execute((Void) null);
+			saveStudyLog(this);
 			break;
 		case Menu2:
-			SharedPref.clearStudyParticipantData();
+			PreferenceHelper.clearStudyParticipantData();
 			finish();
 			Toast.makeText(this, "Study enrollment removed.", Toast.LENGTH_SHORT).show();
 			startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
@@ -272,6 +241,42 @@ public abstract class ABSActivity extends FlurryActivity implements OnClickListe
 		return false;
 	}
 
+	public void saveStudyLog(final Context ctx)
+	{
+		final ProgressDialog pdDialog = new ProgressDialog(ctx);
+		pdDialog.setTitle("Processing...");
+		pdDialog.setMessage("Generating Study Log");
+		pdDialog.setCancelable(false);
+		pdDialog.setIndeterminate(true);
+		pdDialog.show();
+		new AsyncTask<Void, Void, Uri>() {
+			@Override
+			protected Uri doInBackground(Void... params) {
+				return generateStatisticsCsv(ctx);
+			}
+
+			@Override
+			protected void onPostExecute(Uri result) {
+				pdDialog.dismiss();
+				if( result == null ) {
+					Toast.makeText(ctx, "Error Generating CSV File", Toast.LENGTH_LONG).show();
+				}
+				else {
+					//final Intent emailIntent = new Intent(Intent.ACTION_SEND);
+            		Intent emailIntent = new Intent(Intent.ACTION_SEND, Uri.fromParts("mailto", "", null));
+            		emailIntent.setType("message/rfc822");
+            		emailIntent.putExtra(Intent.EXTRA_EMAIL,
+            				new String[] { PreferenceHelper.getStringForKey(ctx.getString(R.string.prf_study_recipient_email), null) });
+            		String sPID = PreferenceHelper.getStringForKey(ctx.getString(R.string.prf_study_participant_number), "");
+            		emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Provider Resilience Study Log - Participant: "+sPID);
+            		emailIntent.putExtra(Intent.EXTRA_TEXT,    "See Attached PR Study Data");
+            		emailIntent.putExtra(Intent.EXTRA_STREAM,  result);
+            		ctx.startActivity(Intent.createChooser(emailIntent, "Send Study Data"));
+					//Toast.makeText(ctx, "Saved CSV File to SDCard", Toast.LENGTH_LONG).show();
+				}
+			}
+		}.execute((Void) null);
+	}
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		menu.findItem(Menu1).setVisible(isEnrolled());
@@ -279,7 +284,7 @@ public abstract class ABSActivity extends FlurryActivity implements OnClickListe
 		return super.onPrepareOptionsMenu(menu);
 	}
 
-	@Override 
+	@Override 																												
 	public boolean onCreateOptionsMenu(Menu menu) {
 		populateMenu(menu);
 		return super.onCreateOptionsMenu(menu);

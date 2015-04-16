@@ -9,11 +9,7 @@ import org.joda.time.DateTime;
 import org.joda.time.Period;
 import org.joda.time.PeriodType;
 
-import android.util.Log;
-
 public class Scoring {
-
-	private static DatabaseProvider db = new DatabaseProvider(Global.appContext);
 
 	public static int LeaveClockScore()
 	{
@@ -31,7 +27,7 @@ public class Scoring {
 		cMonth = c.get(Calendar.MONTH);
 		cDay = c.get(Calendar.DAY_OF_MONTH);
 
-		if(SharedPref.getVacationYear() == 0)
+		if(PreferenceHelper.getVacationYear() == 0)
 		{
 			// get the current date
 			vYear = cYear;
@@ -41,9 +37,9 @@ public class Scoring {
 		else
 		{
 			// get the saved date
-			vYear = SharedPref.getVacationYear();
-			vMonth = SharedPref.getVacationMonth();
-			vDay = SharedPref.getVacationDay();
+			vYear = PreferenceHelper.getVacationYear();
+			vMonth = PreferenceHelper.getVacationMonth();
+			vDay = PreferenceHelper.getVacationDay();
 		}
 
 		DateTime vd = new DateTime(vYear, vMonth + 1, vDay, 0, 0);
@@ -81,7 +77,7 @@ public class Scoring {
 
 	public static int QOLCompassionScore(String date)
 	{
-		List<String[]> answerList = db.selectQOLAnswers(date);
+		List<String[]> answerList = Global.databaseHelper.selectQOLAnswers(date);
 		int len = answerList.size();
 
 		int[] compassionQuestions = {3,6,12,16,18,20,22,24,27,30};
@@ -113,7 +109,7 @@ public class Scoring {
 
 	public static int QOLBurnoutScore(String date)
 	{
-		List<String[]> answerList = db.selectQOLAnswers(date);
+		List<String[]> answerList = Global.databaseHelper.selectQOLAnswers(date);
 		int len = answerList.size();
 
 		int[] burnoutQuestions = {1,4,8,10,15,17,19,21,26,29};
@@ -160,7 +156,7 @@ public class Scoring {
 
 	public static int QOLSTSScore(String date)
 	{
-		List<String[]> answerList = db.selectQOLAnswers(date);
+		List<String[]> answerList = Global.databaseHelper.selectQOLAnswers(date);
 		int len = answerList.size();
 
 		int[] stsQuestions = {2,5,7,9,11,13,14,23,25,28};
@@ -206,7 +202,7 @@ public class Scoring {
 	public static double PROQOLScore(String date)
 	{
 		//If there have been no answers return 0
-		List<String[]> answerList = db.selectQOLAnswers(date);
+		List<String[]> answerList = Global.databaseHelper.selectQOLAnswers(date);
 		if(answerList.size() == 0)
 			return 0;
 		
@@ -231,7 +227,7 @@ public class Scoring {
 
 	public static int BurnoutScore(String date)
 	{
-		int dbvalues = db.selectBurnoutScore(date);
+		int dbvalues = Global.databaseHelper.selectBurnoutScore(date);
 
 		
 		int totalScore = 0;
@@ -247,12 +243,12 @@ public class Scoring {
 	
 	public static int RawBurnoutScore(String date)
 	{
-		return db.selectBurnoutScore(date);
+		return Global.databaseHelper.selectBurnoutScore(date);
 	}
 
 	public static int BuildersKillersScore(String date)
 	{
-		int totalScore = db.selectBuildersKillersScore(date);
+		int totalScore = Global.databaseHelper.selectBuildersKillersScore(date);
 
 		//Global.Log.v("BuildersScore", "" + totalScore);
 		return totalScore;
@@ -260,9 +256,9 @@ public class Scoring {
 
 	public static int MiscScore(String date)
 	{
-		ArrayList<Integer> laugh = (ArrayList<Integer>) db.selectMisc("laugh", date);
-		ArrayList<Integer> video = (ArrayList<Integer>) db.selectMisc("video", date);
-		ArrayList<Integer> remindme = (ArrayList<Integer>) db.selectMisc("remindme", date);
+		ArrayList<Integer> laugh = (ArrayList<Integer>) Global.databaseHelper.selectMisc("laugh", date);
+		ArrayList<Integer> video = (ArrayList<Integer>) Global.databaseHelper.selectMisc("video", date);
+		ArrayList<Integer> remindme = (ArrayList<Integer>) Global.databaseHelper.selectMisc("remindme", date);
 
 		/*int miscScore = 0;
 		if(laugh.size() > 0) miscScore += 3;
@@ -283,7 +279,7 @@ public class Scoring {
 	public static String getLastQOLDate()
 	{
 		String lastDate = "";
-		ArrayList<String> qoldates = (ArrayList<String>) db.selectQOLDatesDesc();
+		ArrayList<String> qoldates = (ArrayList<String>) Global.databaseHelper.selectQOLDatesDesc();
 		if(qoldates.size()>0)
 			lastDate = qoldates.get(0);
 		
@@ -293,7 +289,7 @@ public class Scoring {
 	public static String getLastBurnoutDate()
 	{
 		String lastDate = "";
-		ArrayList<String> qoldates = (ArrayList<String>) db.selectBURNOUTDatesDesc();
+		ArrayList<String> qoldates = (ArrayList<String>) Global.databaseHelper.selectBURNOUTDatesDesc();
 		if(qoldates.size()>0)
 			lastDate = qoldates.get(0);
 		

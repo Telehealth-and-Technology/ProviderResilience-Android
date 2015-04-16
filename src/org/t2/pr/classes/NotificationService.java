@@ -1,17 +1,11 @@
 package org.t2.pr.classes;
 
-import java.util.Calendar;
-
 import org.t2.pr.R;
-import org.t2.pr.activities.SettingsActivity;
 import org.t2.pr.activities.StartupActivity;
-
-import android.app.AlarmManager;
 import android.app.IntentService;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 
 public class NotificationService extends IntentService {

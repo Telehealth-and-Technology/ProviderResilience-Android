@@ -3,31 +3,22 @@ package org.t2.pr.activities;
 import java.util.Calendar;
 
 import org.t2.pr.R;
-import org.t2.pr.classes.DatabaseProvider;
 import org.t2.pr.classes.Global;
 import org.t2.pr.classes.NotificationService;
-import org.t2.pr.classes.SharedPref;
+import org.t2.pr.classes.PreferenceHelper;
 
 import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.PendingIntent;
-import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TimePicker;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 /**
@@ -37,14 +28,12 @@ import android.widget.ToggleButton;
  */
 public class SettingsActivity extends ABSActivity
 {
-	private DatabaseProvider db = new DatabaseProvider(this);
 	Button btnReset;
 	Button btnSetReset;
 	Button btnFeedback;
 	Button btnSetTime;
 	private ToggleButton toggle_welcome;
 	private ToggleButton toggle_reminders;
-	private ToggleButton toggle_anondata;
 	static final int TIME_DIALOG_ID = 1;
 	static final int RESET_DIALOG_ID = 2;
 
@@ -70,15 +59,11 @@ public class SettingsActivity extends ABSActivity
 
 		toggle_welcome = (ToggleButton)this.findViewById(R.id.toggle_welcome);
 		toggle_welcome.setOnClickListener(this);
-		toggle_welcome.setChecked(SharedPref.getWelcomeMessage());
+		toggle_welcome.setChecked(PreferenceHelper.getWelcomeMessage());
 
 		toggle_reminders = (ToggleButton)this.findViewById(R.id.toggle_reminders);
 		toggle_reminders.setOnClickListener(this);
-		toggle_reminders.setChecked(SharedPref.getReminders());
-
-		toggle_anondata = (ToggleButton)this.findViewById(R.id.toggle_anondata);
-		toggle_anondata.setOnClickListener(this);
-		toggle_anondata.setChecked(SharedPref.getAnonData());
+		toggle_reminders.setChecked(PreferenceHelper.getReminders());
 
 		btnSetReset = (Button)this.findViewById(R.id.toggle_setreset);
 		btnSetReset.setOnClickListener(this);
@@ -117,12 +102,12 @@ public class SettingsActivity extends ABSActivity
 	public void ClearData()
 	{
 		//Clear the data
-		db.ClearData();
+		Global.databaseHelper.ClearData();
 
 		//Clear Vacation clock
-		SharedPref.setVacationDay(0);
-		SharedPref.setVacationMonth(0);
-		SharedPref.setVacationYear(0);
+		PreferenceHelper.setVacationDay(0);
+		PreferenceHelper.setVacationMonth(0);
+		PreferenceHelper.setVacationYear(0);
 
 		//If debug, ask insert test data
 		if(Global.DebugOn)
@@ -150,7 +135,7 @@ public class SettingsActivity extends ABSActivity
 	 */
 	public void EnterTestData()
 	{
-		db.EnterTestData();
+		Global.databaseHelper.EnterTestData();
 	}
 
 	/* (non-Javadoc)
@@ -191,8 +176,8 @@ public class SettingsActivity extends ABSActivity
 			new TimePickerDialog.OnTimeSetListener() {
 		@Override
 		public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-			SharedPref.setNotifyHour(hourOfDay);
-			SharedPref.setNotifyMinute(minute);
+			PreferenceHelper.setNotifyHour(hourOfDay);
+			PreferenceHelper.setNotifyMinute(minute);
 			SetReminder();
 
 		}
@@ -201,8 +186,8 @@ public class SettingsActivity extends ABSActivity
 			new TimePickerDialog.OnTimeSetListener() {
 		@Override
 		public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-			SharedPref.setResetHour(hourOfDay);
-			SharedPref.setResetMinute(minute);
+			PreferenceHelper.setResetHour(hourOfDay);
+			PreferenceHelper.setResetMinute(minute);
 		}
 	};
 
@@ -212,11 +197,11 @@ public class SettingsActivity extends ABSActivity
 		case TIME_DIALOG_ID:
 			return new TimePickerDialog(this,
 					mTimeSetListener,
-					SharedPref.getNotifyHour(), SharedPref.getNotifyMinute(), false);
+					PreferenceHelper.getNotifyHour(), PreferenceHelper.getNotifyMinute(), false);
 		case RESET_DIALOG_ID:
 			return new TimePickerDialog(this,
 					mResetTimeSetListener,
-					SharedPref.getResetHour(), SharedPref.getResetMinute(), false);
+					PreferenceHelper.getResetHour(), PreferenceHelper.getResetMinute(), false);
 		}
 		super.onCreateDialog(id);
 		return null;
@@ -241,18 +226,13 @@ public class SettingsActivity extends ABSActivity
 		case R.id.toggle_welcome:	
 			onEvent("Settings Activity: Toggle Welcome: " + toggle_welcome.isChecked());
 
-			SharedPref.setWelcomeMessage(toggle_welcome.isChecked());
+			PreferenceHelper.setWelcomeMessage(toggle_welcome.isChecked());
 			break;
 		case R.id.toggle_reminders:		
 			onEvent("Settings Activity: Toggle Reminders: " + toggle_reminders.isChecked());
 
-			SharedPref.setReminders(toggle_reminders.isChecked());
+			PreferenceHelper.setReminders(toggle_reminders.isChecked());
 			SetReminder();
-			break;
-		case R.id.toggle_anondata:			
-			onEvent("Settings Activity: Toggle AnonData: " + toggle_anondata.isChecked());
-
-			SharedPref.setAnonData(toggle_anondata.isChecked());
 			break;
 		case R.id.toggle_setrtime:
 			onEvent("Settings Activity: Set reminder time");
@@ -274,11 +254,11 @@ public class SettingsActivity extends ABSActivity
 				PendingIntent.getService(SettingsActivity.this, 0, intent,
 						PendingIntent.FLAG_UPDATE_CURRENT);
 
-		if(SharedPref.getReminders())
+		if(PreferenceHelper.getReminders())
 		{
 			Calendar nc = Calendar.getInstance();
-			nc.set(Calendar.HOUR_OF_DAY, SharedPref.getNotifyHour());
-			nc.set(Calendar.MINUTE, SharedPref.getNotifyMinute());
+			nc.set(Calendar.HOUR_OF_DAY, PreferenceHelper.getNotifyHour());
+			nc.set(Calendar.MINUTE, PreferenceHelper.getNotifyMinute());
 			nc.set(Calendar.SECOND, 0);
 
 			// Schedule an alarm

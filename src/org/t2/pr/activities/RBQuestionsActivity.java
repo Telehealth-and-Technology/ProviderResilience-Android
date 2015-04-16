@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.t2.pr.R;
 import org.t2.pr.classes.ActivityFactory;
-import org.t2.pr.classes.DatabaseProvider;
+import org.t2.pr.classes.Global;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -26,10 +26,6 @@ public class RBQuestionsActivity  extends ABSActivity
 	public static String customBuilder = "";
 	private List<String[]> questionList;
 	private ArrayList<int[]> answers;
-
-	//private ProgressDialog m_ProgressDialog = null;
-	private DatabaseProvider db = new DatabaseProvider(this);
-	//private Context ctx;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) 
@@ -53,7 +49,7 @@ public class RBQuestionsActivity  extends ABSActivity
 
 	private void PopulateRBQuestions()
 	{
-		questionList = db.selectRBQuestions();
+		questionList = Global.databaseHelper.selectRBQuestions();
 		answers = new ArrayList<int[]>();
 
 		if (questionList.size() > 0) 
@@ -108,7 +104,7 @@ public class RBQuestionsActivity  extends ABSActivity
 		onEvent("BuildersQuestions Activity: Saved Answers");
 
 		String date = (String) android.text.format.DateFormat.format("MM/dd/yyyy hh:mm aa", new java.util.Date());
-		db.insertRBAnswers(answers, date);
+		Global.databaseHelper.insertRBAnswers(answers, date);
 	}
 
 	public void CustomQuestion()
@@ -126,7 +122,7 @@ public class RBQuestionsActivity  extends ABSActivity
 				customBuilder = input.getText().toString().trim();
 				
 				//Save to database
-					db.insertRBQuestion(customBuilder);
+				Global.databaseHelper.insertRBQuestion(customBuilder);
 					reloadActivity();
 				
 			}

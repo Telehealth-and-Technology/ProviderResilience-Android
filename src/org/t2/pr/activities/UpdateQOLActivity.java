@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.t2.pr.R;
-import org.t2.pr.classes.DatabaseProvider;
+import org.t2.pr.classes.Global;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -14,8 +14,6 @@ import android.widget.TextView;
 
 public class UpdateQOLActivity extends ABSActivity
 {
-
-	private DatabaseProvider db = new DatabaseProvider(this);
 	private List<String[]> questionList;
 	private ArrayList<int[]> answers;
 
@@ -101,7 +99,7 @@ public class UpdateQOLActivity extends ABSActivity
 			public void run() 
 			{
 				String date = (String) android.text.format.DateFormat.format("MM/dd/yyyy hh:mm aa", new java.util.Date());
-				db.insertQOLAnswers(answers, date);
+				Global.databaseHelper.insertQOLAnswers(answers, date);
 				runOnUiThread(terminate);
 			}
 		};
@@ -124,7 +122,7 @@ public class UpdateQOLActivity extends ABSActivity
 	
 	private void populateQOLQuestions()
 	{
-		questionList = db.selectQOLQuestions();
+		questionList = Global.databaseHelper.selectQOLQuestions();
 		answers = new ArrayList<int[]>();
 
 		for(int i= 0; i< questionList.size(); i++)

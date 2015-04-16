@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.t2.pr.R;
-import org.t2.pr.classes.ActivityFactory;
-import org.t2.pr.classes.DatabaseProvider;
 import org.t2.pr.classes.Global;
 import org.t2.pr.classes.Slider;
 import android.graphics.Color;
@@ -23,9 +21,6 @@ public class UpdateBurnoutActivity extends ABSActivity implements Slider.OnSeekB
 
 	public Button btnKontinue;
 	private ArrayList<Integer> reverseScore;
-	
-	//private ProgressDialog m_ProgressDialog = null;
-	private DatabaseProvider db = new DatabaseProvider(this);
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) 
@@ -54,7 +49,7 @@ public class UpdateBurnoutActivity extends ABSActivity implements Slider.OnSeekB
 
 	private void populateBurnoutQuestions()
 	{
-		questionList = db.selectBurnoutQuestions();
+		questionList = Global.databaseHelper.selectBurnoutQuestions();
 		answers = new ArrayList<int[]>();
 
 		for(int i= 0; i< questionList.size(); i++)
@@ -147,7 +142,7 @@ public class UpdateBurnoutActivity extends ABSActivity implements Slider.OnSeekB
 		onEvent("UpdateBurnout Activity: Saved Answers");
 
 		String date = (String) android.text.format.DateFormat.format("MM/dd/yyyy hh:mm aa", new java.util.Date());
-		db.insertBurnoutAnswers(answers, date);
+		Global.databaseHelper.insertBurnoutAnswers(answers, date);
 	}
 
 	@Override

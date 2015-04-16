@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical">
+	
+	<ScrollView
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="1.0">
+		<LinearLayout
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:orientation="vertical">
+			<TextView
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:textAppearance="@android:style/TextAppearance.Medium"
+				android:text="Study Enrollment\n\nA password will be automatically generated for you and must be emailed to the coordinator of the study. Your email client will open automatically containing all the necessary information. Please review and send the email.\n\nAt the end of the study, your logged data will be encrypted using this password." />
+			
+			<View
+				android:layout_width="fill_parent"
+				android:layout_height="2dip" />
+				
+			
+		</LinearLayout>
+	</ScrollView>
+	
+	<Button	
+		android:id="@+id/emailButton"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:text="Generate Password" />
+	<Button	
+		android:id="@+id/doneButton"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:enabled="false"
+		android:text="Done" />
+</LinearLayout>

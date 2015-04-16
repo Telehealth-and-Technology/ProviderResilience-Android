@@ -3,8 +3,7 @@ package org.t2.pr.activities;
 import java.util.Random;
 
 import org.t2.pr.R;
-import org.t2.pr.classes.ActivityFactory;
-import org.t2.pr.classes.SharedPref;
+import org.t2.pr.classes.PreferenceHelper;
 import org.t2.pr.classes.SimpleGestureFilter;
 import org.t2.pr.classes.SimpleGestureFilter.SimpleGestureListener;
 import org.t2.pr.classes.TransitionView;
@@ -126,7 +125,7 @@ public class CardsActivity extends ABSActivity implements OnClickListener, Simpl
 	@Override
 	public void onPause()
 	{
-		SharedPref.setCardIndex(cardIndex);
+		PreferenceHelper.setCardIndex(cardIndex);
 		super.onPause();
 	}
 
@@ -140,7 +139,7 @@ public class CardsActivity extends ABSActivity implements OnClickListener, Simpl
 		}
 		else
 		{
-		cardIndex = (SharedPref.getCardIndex() - 1);
+		cardIndex = (PreferenceHelper.getCardIndex() - 1);
 		}
 		super.onResume();
 		NextCard();

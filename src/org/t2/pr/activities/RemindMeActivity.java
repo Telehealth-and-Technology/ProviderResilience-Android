@@ -1,16 +1,11 @@
 package org.t2.pr.activities;
 
 import org.t2.pr.R;
-import org.t2.pr.classes.DatabaseProvider;
 import org.t2.pr.classes.Global;
 
 import com.brightcove.mobile.mediaapi.ReadAPI;
-import com.brightcove.mobile.mediaapi.model.ItemCollection;
-import com.brightcove.mobile.mediaapi.model.Playlist;
 import com.brightcove.mobile.mediaapi.model.Video;
 import com.brightcove.mobile.mediaapi.model.enums.MediaDeliveryTypeEnum;
-import com.brightcove.mobile.mediaapi.model.enums.SortByTypeEnum;
-import com.brightcove.mobile.mediaapi.model.enums.SortOrderTypeEnum;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -29,7 +24,6 @@ public class RemindMeActivity extends ABSActivity implements OnClickListener
 	private ImageView btnAnger;
 	private ImageView btnSeekDepression;
 	private ImageView btnStigma;
-	private DatabaseProvider db = new DatabaseProvider(this);
 	private ReadAPI readAPI;
 
 	@Override
@@ -81,7 +75,7 @@ public class RemindMeActivity extends ABSActivity implements OnClickListener
 
 			try{
 				String answerDate = (String) android.text.format.DateFormat.format("MM/dd/yyyy hh:mm aa", new java.util.Date());
-				db.insertMisc("remindme", 1, answerDate);
+				Global.databaseHelper.insertMisc("remindme", 1, answerDate);
 				//Read the video url from brightcove and load with standard media player (sorry, brightcove's player is junk.)
 				Video video = readAPI.findVideoById(Long.parseLong("1125410612001"), null, null);
 				Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -96,7 +90,7 @@ public class RemindMeActivity extends ABSActivity implements OnClickListener
 
 			try{
 				String answerDate = (String) android.text.format.DateFormat.format("MM/dd/yyyy hh:mm aa", new java.util.Date());
-				db.insertMisc("remindme", 1, answerDate);
+				Global.databaseHelper.insertMisc("remindme", 1, answerDate);
 				//Read the video url from brightcove and load with standard media player (sorry, brightcove's player is junk.)
 				Video video = readAPI.findVideoById(Long.parseLong("1124090491001"), null, null);
 				Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -112,7 +106,7 @@ public class RemindMeActivity extends ABSActivity implements OnClickListener
 
 			try{
 				String answerDate = (String) android.text.format.DateFormat.format("MM/dd/yyyy hh:mm aa", new java.util.Date());
-				db.insertMisc("remindme", 1, answerDate);
+				Global.databaseHelper.insertMisc("remindme", 1, answerDate);
 				//Read the video url from brightcove and load with standard media player (sorry, brightcove's player is junk.)
 				Video video = readAPI.findVideoById(Long.parseLong("1125552100001"), null, null);
 				Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -128,7 +122,7 @@ public class RemindMeActivity extends ABSActivity implements OnClickListener
 
 			try{
 				String answerDate = (String) android.text.format.DateFormat.format("MM/dd/yyyy hh:mm aa", new java.util.Date());
-				db.insertMisc("remindme", 1, answerDate);
+				Global.databaseHelper.insertMisc("remindme", 1, answerDate);
 				//Read the video url from brightcove and load with standard media player (sorry, brightcove's player is junk.)
 				Video video = readAPI.findVideoById(Long.parseLong("1125380434001"), null, null);
 				Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -144,7 +138,7 @@ public class RemindMeActivity extends ABSActivity implements OnClickListener
 
 			try{
 				String answerDate = (String) android.text.format.DateFormat.format("MM/dd/yyyy hh:mm aa", new java.util.Date());
-				db.insertMisc("remindme", 1, answerDate);
+				Global.databaseHelper.insertMisc("remindme", 1, answerDate);
 				//Read the video url from brightcove and load with standard media player (sorry, brightcove's player is junk.)
 				Video video = readAPI.findVideoById(Long.parseLong("1125586040001"), null, null);
 				Intent intent = new Intent(Intent.ACTION_VIEW);

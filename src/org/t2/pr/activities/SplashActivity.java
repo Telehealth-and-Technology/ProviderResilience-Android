@@ -1,15 +1,13 @@
 package org.t2.pr.activities;
 
-import java.util.Calendar;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import org.t2.pr.R;
 import org.t2.pr.classes.ActivityFactory;
 import org.t2.pr.classes.Global;
-import org.t2.pr.classes.SharedPref;
+import org.t2.pr.classes.PreferenceHelper;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -22,7 +20,7 @@ import android.view.View.OnClickListener;
  * @author Steve Ody (stephen.ody@tee2.org)
  */
 
-public class SplashActivity extends FlurryActivity implements OnClickListener 
+public class SplashActivity extends PRActivity implements OnClickListener 
 {
 	private Timer timeoutTimer;
 
@@ -60,7 +58,7 @@ public class SplashActivity extends FlurryActivity implements OnClickListener
 
 	private void startStartActivity() 
 	{
-		if (SharedPref.getIsEulaAccepted()) 
+		if (PreferenceHelper.getIsEulaAccepted()) 
 		{
 			startMainActivity();
 			this.finish();
