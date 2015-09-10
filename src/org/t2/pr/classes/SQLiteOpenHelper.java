@@ -109,7 +109,7 @@ public abstract class SQLiteOpenHelper {
         SQLiteDatabase.loadLibs(mContext);
         
         //Maybe error out if unsuccessful?
-        int success = com.t2.fcads.FipsWrapper.getInstance().doFIPSmode();
+        int success = com.t2.fcads.FipsWrapper.getInstance(mContext).doFIPSmode();
 		Log.v("Fipsmode", ""+success);
     }
 

@@ -72,7 +72,7 @@ public class DatabaseHelper
 	{
 		//Load FIPS libraries
 		SQLiteDatabase.loadLibs(context);
-		com.t2.fcads.FipsWrapper.getInstance().doFIPSmode();
+		com.t2.fcads.FipsWrapper.getInstance(this.context).doFIPSmode();
 
 		File originalFile = context.getDatabasePath(ORIGINALDB_NAME);
 

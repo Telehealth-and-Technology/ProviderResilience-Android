@@ -74,7 +74,7 @@ public class StudyEnrollmentActivity extends Activity {
 		SQLiteDatabase.loadLibs(this);
 				
 		FipsWrapper.setContext(this);
-		fipsWrapper = FipsWrapper.getInstance();
+		fipsWrapper = FipsWrapper.getInstance(this);
 		fipsWrapper.doFIPSmode();
 		fipsWrapper.doPrepare(false);	
 		fipsWrapper.doDeInitializeLogin();

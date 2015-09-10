@@ -187,7 +187,7 @@ public class PRActivity extends Activity {
 		String decryptKey = PreferenceHelper.getStringForKey("EnrollmentPassword", null);
 
 		FipsWrapper.setContext(context);
-		FipsWrapper fipsWrapper = FipsWrapper.getInstance();
+		FipsWrapper fipsWrapper = FipsWrapper.getInstance(context);
 		fipsWrapper.doFIPSmode();
 		fipsWrapper.doPrepare(false);	
 		
