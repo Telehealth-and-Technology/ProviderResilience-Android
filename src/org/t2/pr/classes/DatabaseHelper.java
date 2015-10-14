@@ -66,6 +66,10 @@ public class DatabaseHelper
 
 		OpenHelper openHelper = new OpenHelper(this.context);
 		DatabaseHelper.db = openHelper.getWritableDatabase();
+		
+		//Shared Prefs
+		String createPREFERENCES = "CREATE TABLE IF NOT EXISTS SHAREDPREFS (prefID INTEGER PRIMARY KEY AUTOINCREMENT, PREFSKEY TEXT, PREFSVALUE TEXT);";
+		db.execSQL(createPREFERENCES);
 	}
 
 	public void encryptExistingDatabase() throws IOException
