@@ -2,9 +2,11 @@ package org.t2.pr.classes;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.database.Cursor;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 import java.io.File;
@@ -13,6 +15,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Random;
 import net.sqlcipher.database.SQLiteDatabase;
 
@@ -52,7 +56,8 @@ public class DatabaseHelper
 		File originalFile = context.getDatabasePath(ORIGINALDB_NAME);
 		File databaseFile = this.context.getDatabasePath(DATABASE_NAME);
 
-		if ((originalFile.exists()) && (!databaseFile.exists()))
+		Boolean updateOldData = ((originalFile.exists()) && (!databaseFile.exists()));
+		if(updateOldData)
 		{
 			try {
 				encryptExistingDatabase();
@@ -70,6 +75,10 @@ public class DatabaseHelper
 		//Shared Prefs
 		String createPREFERENCES = "CREATE TABLE IF NOT EXISTS SHAREDPREFS (prefID INTEGER PRIMARY KEY AUTOINCREMENT, PREFSKEY TEXT, PREFSVALUE TEXT);";
 		db.execSQL(createPREFERENCES);
+		
+		if(updateOldData) {
+			recoverSharedPreferences();
+		}
 	}
 
 	public void encryptExistingDatabase() throws IOException
@@ -103,7 +112,24 @@ public class DatabaseHelper
 			newFile.renameTo(context.getDatabasePath(DATABASE_NAME));
 		}
 	}
-
+	
+	public void recoverSharedPreferences() {		
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+		Map<String,?> values = prefs.getAll();
+		for(Entry<String, ?> entry : values.entrySet()) {
+			String key = entry.getKey();
+			if(entry.getValue() instanceof Boolean) {
+				Boolean bool = (Boolean) entry.getValue();
+				setPreference(key, bool ? "true" : "false");
+			}
+			else {
+				setPreference(key, String.valueOf(entry.getValue()));
+			}
+		}
+		
+		prefs.edit().clear().commit();
+	}
+	
 	/**
 	 * Used to clean all user-entered data before being put into database
 	 * @param input string to clean
