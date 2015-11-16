@@ -76,8 +76,9 @@ public class DatabaseHelper
 		String createPREFERENCES = "CREATE TABLE IF NOT EXISTS SHAREDPREFS (prefID INTEGER PRIMARY KEY AUTOINCREMENT, PREFSKEY TEXT, PREFSVALUE TEXT);";
 		db.execSQL(createPREFERENCES);
 		
-		if(updateOldData) {
+		if(!getPreference("importPrefs").equalsIgnoreCase("false")) {
 			recoverSharedPreferences();
+			setPreference("importPrefs", "false");
 		}
 	}
 
