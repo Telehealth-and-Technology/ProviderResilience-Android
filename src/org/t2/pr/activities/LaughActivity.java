@@ -162,7 +162,8 @@ public class LaughActivity extends ABSActivity implements OnClickListener
 						}
 
 						dilbertArray = parseJSON(sb);
-						runOnUiThread(GetDilbertRunnable);
+						GetDilbertComic();
+						runOnUiThread(ShowDilbertRunnable);
 
 					}
 					if(responseCode == HttpURLConnection.HTTP_CLIENT_TIMEOUT)
@@ -189,7 +190,7 @@ public class LaughActivity extends ABSActivity implements OnClickListener
 
 	private Runnable GetDilbertRunnable = new Runnable() {
 		public void run() {
-			GetDilbertComic() ;
+			GetDilbertComic();
 			runOnUiThread(ShowDilbertRunnable);
 		}
 	};
