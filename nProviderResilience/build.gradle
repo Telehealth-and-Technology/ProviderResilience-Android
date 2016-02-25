@@ -1,0 +1,29 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 14
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "org.t2.pr"
+        minSdkVersion 14
+        targetSdkVersion 14
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    compile project(':zenCharts')
+    compile files('libs/achartengine-1.0.0.jar')
+    compile files('libs/bc-android-mediaapi.jar')
+    compile files('libs/bc-android-player.jar')
+    compile files('libs/fipswrapper.jar')
+    compile files('libs/guava-r09.jar')
+    compile files('libs/sqlcipher.jar')
+}
