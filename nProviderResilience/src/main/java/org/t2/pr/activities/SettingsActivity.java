@@ -163,7 +163,7 @@ public class SettingsActivity extends ABSActivity
 
 			//populate content for message body and email recipients
 			shareIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Provider Resilience Feedback");
-			shareIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[] {"info@t2health.org"});
+			shareIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[] {"usarmy.ncr.medcom-usamrmc-dcoe.mbx.t2-central@mail.mil"});
 			shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, "Type feedback here, thank you!");
 
 			startActivity(Intent.createChooser(shareIntent, "Send Feedback"));
